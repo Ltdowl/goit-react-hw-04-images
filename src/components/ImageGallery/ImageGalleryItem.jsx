@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import s from './ImageGallery.module.css';
 
 export const ImageGalleryItem = ({ images, onClick }) => {
-  return images.map(image => (
-    <li key={image.id} className={s.ImageGalleryItem}>
+  return images.map(({ id, imageURL, tags, src }) => (
+    <li key={id} className={s.ImageGalleryItem}>
       <img
-        src={image.imageURL}
-        alt={image.tags}
+        id={id}
+        src={imageURL}
+        alt={tags}
         className={s.ImageGalleryItemImage}
-        name={image.src}
+        name={src}
         onClick={onClick}
       />
     </li>
@@ -25,4 +26,3 @@ ImageGalleryItem.propTypes = {
     })
   ),
 };
-
